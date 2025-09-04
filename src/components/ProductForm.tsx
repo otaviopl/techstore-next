@@ -18,7 +18,7 @@ export default function ProductForm({ product, onSubmit, onCancel, isEditing = f
     section: '',
     price: 0,
     description: '',
-    image: '',
+    image: '', // Campo mantido para compatibilidade com a API
     used: false,
     brand: '',
   })
@@ -56,7 +56,7 @@ export default function ProductForm({ product, onSubmit, onCancel, isEditing = f
         section: product.section || '',
         price: product.price || 0,
         description: product.description || '',
-        image: product.image || '',
+        image: '', // Campo mantido para compatibilidade com a API
         used: product.used || false,
         brand: product.brand || '',
       })
@@ -202,21 +202,6 @@ export default function ProductForm({ product, onSubmit, onCancel, isEditing = f
               />
             </div>
 
-            <div>
-              <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-1">
-                URL da Imagem
-              </label>
-              <input
-                type="url"
-                id="image"
-                name="image"
-                value={formData.image}
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                placeholder="https://exemplo.com/imagem.jpg"
-              />
-            </div>
 
             <div className="flex items-center">
               <input

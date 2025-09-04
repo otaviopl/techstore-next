@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     const body: CreateProductRequest = await request.json()
     
     // Validação básica
-    if (!body.name || !body.section || !body.price || !body.description || !body.image || !body.brand) {
+    if (!body.name || !body.section || !body.price || !body.description || !body.brand) {
       return NextResponse.json(
         { error: 'Campos obrigatórios não fornecidos' },
         { status: 400 }
