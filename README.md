@@ -1,166 +1,136 @@
-# 🛒 TechStore - Loja de Informática (Next.js + BFF)
+# TechStore — Loja de Informática
 
-Sistema de gerenciamento de produtos para loja de informática, desenvolvido com **Next.js 15**, **TypeScript**, **Tailwind CSS** e **BFF (Backend for Frontend)**.
+Aplicação moderna para gerenciamento de produtos de uma loja de informática. O projeto utiliza Next.js 15 (App Router), TypeScript, Tailwind CSS e Framer Motion, adotando o padrão BFF (Backend for Frontend) por meio de API Routes para intermediar o acesso aos dados persistidos em arquivo JSON.
 
-## 🚀 Tecnologias
+## Visão Geral da Arquitetura
 
-- ⚛️ Next.js 15 (App Router)
-- 🔷 TypeScript
-- 🎨 Tailwind CSS
-- 🏗️ BFF (Backend for Frontend) com API Routes
-- 📦 JSON como banco de dados
+### Frontend (Next.js App Router)
+- Componentes React tipados em TypeScript
+- Interface responsiva com Tailwind CSS
+- Animações suaves com Framer Motion
+- Ícones modernos com Lucide React
 
-## 🏗️ Arquitetura BFF
+### BFF (API Routes)
+Camada fina de backend dentro do Next.js, responsável por:
+- Expor endpoints alinhados às necessidades da interface
+- Validação básica de dados
+- Orquestração de leitura/escrita no JSON local
 
-Este projeto implementa o padrão **BFF (Backend for Frontend)** usando as API Routes do Next.js:
+**Endpoints principais:**
+- `GET/POST /api/products`
+- `GET/PUT/DELETE /api/products/[id]`
+- `GET /api/brands`
 
-### 📁 Estrutura da API
+### Persistência
+Arquivo `products.json` como base de dados local para fins didáticos.
+
+## Estrutura de Pastas
 
 ```
-src/app/api/
-├── products/
-│   ├── route.ts          # GET (listar) e POST (criar)
-│   └── [id]/
-│       └── route.ts      # GET, PUT, DELETE por ID
-└── brands/
-    └── route.ts          # GET (listar marcas)
+src/
+├── app/
+│   ├── api/
+│   │   ├── products/
+│   │   │   ├── route.ts           # GET (listar) e POST (criar)
+│   │   │   └── [id]/
+│   │   │       └── route.ts       # GET, PUT, DELETE por ID
+│   │   └── brands/
+│   │       └── route.ts           # GET (listar marcas)
+│   ├── page.tsx                   # Página principal
+│   ├── layout.tsx                 # Layout global
+│   └── globals.css                # Estilos globais
+├── components/
+│   ├── ProductCard.tsx            # Card de produto com animações
+│   ├── ProductForm.tsx            # Formulário de produto
+│   └── ProductList.tsx            # Lista de produtos com filtros
+├── data/
+│   └── products.json              # Base de dados JSON
+└── types/
+    └── product.ts                 # Tipos e interfaces TypeScript
 ```
 
-### 🔄 Endpoints Disponíveis
+## Endpoints da API
 
-- `GET /api/products` - Listar todos os produtos
-- `POST /api/products` - Criar novo produto
-- `GET /api/products/[id]` - Buscar produto por ID
-- `PUT /api/products/[id]` - Atualizar produto
-- `DELETE /api/products/[id]` - Deletar produto
-- `GET /api/brands` - Listar todas as marcas
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| `GET` | `/api/products` | Lista todos os produtos |
+| `POST` | `/api/products` | Cria novo produto |
+| `GET` | `/api/products/[id]` | Obtém produto por ID |
+| `PUT` | `/api/products/[id]` | Atualiza produto |
+| `DELETE` | `/api/products/[id]` | Remove produto |
+| `GET` | `/api/brands` | Lista marcas disponíveis |
 
-## 📦 Funcionalidades
+## Fluxo de Dados
 
-- ✅ **CRUD Completo** - Criar, ler, atualizar e deletar produtos
-- ✅ **Filtros Avançados** - Por seção e status (usado/novo)
-- ✅ **Busca em Tempo Real** - Por nome e descrição
-- ✅ **Interface Responsiva** - Desktop, tablet e mobile
-- ✅ **TypeScript** - Tipagem forte em todo o projeto
-- ✅ **BFF Pattern** - Backend otimizado para o frontend
-- ✅ **Validação de Dados** - Validação tanto no frontend quanto no backend
+```
+UI (React/Next.js) → BFF (API Routes/Validação) → JSON (persistência local)
+```
 
-## ▶️ Como executar
+A adoção do padrão BFF reduz over-fetching/under-fetching, centraliza regras simples e facilita evolução incremental.
+
+## Funcionalidades Principais
+
+### Gerenciamento de Produtos
+- **CRUD completo** de produtos (criar, ler, atualizar, excluir)
+- **Filtros avançados** por seção, status (novo/usado) e busca textual
+- **Sistema de marcas** com imagens associadas
+- **Validação** no frontend e nas rotas da API
+
+### Interface e Experiência
+- **Design responsivo** com Tailwind CSS
+- **Animações suaves** com Framer Motion
+- **Ícones modernos** com Lucide React
+- **Paleta de cores** laranja e branco
+- **Cards interativos** com botões de ação nos cantos
+
+### Tecnologias
+- **TypeScript** para tipagem estática
+- **Next.js 15** com App Router
+- **Tailwind CSS** para estilização
+- **Framer Motion** para animações
+- **Lucide React** para ícones
+
+### Seções Disponíveis
+- Computadores
+- Acessórios
+- Impressoras
+- Games
+- Gadgets
+
+## Como Executar
 
 ### Pré-requisitos
-- Node.js (versão 18 ou superior)
-- npm ou yarn
+- Node.js ≥ 18
+- npm, pnpm ou yarn
 
 ### Instalação
+```bash
+# Instalar dependências
+npm install
+# ou
+pnpm install
 
-1. **Clone o repositório:**
-   ```bash
-   git clone <url-do-repositorio>
-   cd techstore-next
-   ```
-
-2. **Instale as dependências:**
-   ```bash
-   npm install
-   ```
-
-3. **Inicie o servidor de desenvolvimento:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Acesse a aplicação:**
-   - Frontend: http://localhost:3000
-   - API: http://localhost:3000/api/products
-
-## 📁 Estrutura do Projeto
-
-```
-techstore-next/
-├── src/
-│   ├── app/
-│   │   ├── api/                    # API Routes (BFF)
-│   │   │   ├── products/
-│   │   │   └── brands/
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx               # Página principal
-│   ├── components/
-│   │   ├── ProductCard.tsx
-│   │   ├── ProductForm.tsx
-│   │   └── ProductList.tsx
-│   ├── data/
-│   │   └── products.json          # Banco de dados JSON
-│   └── types/
-│       └── product.ts             # Tipos TypeScript
-├── package.json
-├── tailwind.config.js
-├── tsconfig.json
-└── README.md
+# Executar em modo desenvolvimento
+npm run dev
+# ou
+pnpm dev
 ```
 
-## 🎯 Seções de Produtos
+### Acesso
+- **Aplicação**: http://localhost:3000
+- **API**: http://localhost:3000/api/products
 
-- **computadores** - Hardware, componentes, etc.
-- **acessorios** - Periféricos, monitores, áudio, etc.
-- **impressoras** - Impressoras e equipamentos de impressão
-- **games** - Produtos relacionados a jogos
-- **gadgets** - Dispositivos eletrônicos diversos
+## Scripts Disponíveis
 
-## 🛠️ Scripts Disponíveis
-
-- `npm run dev` - Inicia o servidor de desenvolvimento
-- `npm run build` - Gera build de produção
-- `npm run start` - Inicia o servidor de produção
-- `npm run lint` - Executa o linter
-
-## 🔧 Vantagens do BFF
-
-### ✅ **Benefícios Implementados:**
-
-1. **API Otimizada para Frontend**
-   - Endpoints específicos para as necessidades da UI
-   - Redução de over-fetching e under-fetching
-
-2. **Validação Centralizada**
-   - Validação de dados no backend
-   - Tipagem TypeScript compartilhada
-
-3. **Performance**
-   - Menos requisições HTTP
-   - Dados agregados quando necessário
-
-4. **Manutenibilidade**
-   - Lógica de negócio centralizada
-   - Fácil evolução da API
-
-## 📊 Dados de Exemplo
-
-O arquivo `src/data/products.json` contém produtos de exemplo nas seções:
-- computadores
-- acessorios
-
-## 🔄 Fluxo de Dados
-
-```
-Frontend (React) → API Routes (BFF) → JSON Database
-     ↓                    ↓                ↓
-  Componentes         Validação        Persistência
-  TypeScript         TypeScript        Local
+```bash
+npm run dev      # Executa em modo desenvolvimento
+npm run build    # Gera build de produção
+npm run start    # Executa build de produção
+npm run lint     # Executa linter ESLint
 ```
 
-## 📝 Licença
+## Decisões de Projeto
 
-Este projeto é uma evolução do ProductStore original, implementando arquitetura moderna com Next.js e BFF.
-
-## 🤝 Contribuição
-
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
-## 📞 Suporte
-
-Se encontrar algum problema ou tiver dúvidas, abra uma issue no repositório.
+### Arquitetura
+- **Next.js + BFF**: Facilita prototipagem ao unir UI e API na mesma base, reduzindo complexidade de deploy
+- **JSON local**: Suficiente para fins didáticos, simplifica persistência e versionamento dos dados
