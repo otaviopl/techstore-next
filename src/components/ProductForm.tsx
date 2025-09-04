@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Product, CreateProductRequest } from '@/types/product'
+import { Product, CreateProductRequest, Brand } from '@/types/product'
 
 interface ProductFormProps {
   product?: Product
@@ -18,7 +18,26 @@ export default function ProductForm({ product, onSubmit, onCancel, isEditing = f
     description: '',
     image: '',
     used: false,
+    brand: '',
   })
+  const [brands, setBrands] = useState<Brand[]>([])
+
+  // Carregar marcas na inicialização
+  useEffect(() => {
+    loadBrands()
+  }, [])
+
+  const loadBrands = async () => {
+    try {
+      const response = await fetch('/api/brands')
+      if (response.ok) {
+        const data = await response.json()
+        setBrands(data)
+      }
+    } catch (error) {
+      console.error('Erro ao carregar marcas:', error)
+    }
+  }
 
   const sections = [
     'computadores',
@@ -37,6 +56,7 @@ export default function ProductForm({ product, onSubmit, onCancel, isEditing = f
         description: product.description || '',
         image: product.image || '',
         used: product.used || false,
+        brand: product.brand || '',
       })
     }
   }, [product, isEditing])
@@ -97,6 +117,27 @@ export default function ProductForm({ product, onSubmit, onCancel, isEditing = f
                 {sections.map(section => (
                   <option key={section} value={section}>
                     {section}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="brand" className="block text-sm font-medium text-gray-700 mb-1">
+                Marca
+              </label>
+              <select
+                id="brand"
+                name="brand"
+                value={formData.brand}
+                onChange={handleChange}
+                required
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              >
+                <option value="">Selecione uma marca</option>
+                {brands.map(brand => (
+                  <option key={brand.id} value={brand.name}>
+                    {brand.name}
                   </option>
                 ))}
               </select>

@@ -52,19 +52,20 @@
       "price": "2000",
       "description": "Teclado foda!",
       "image": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400",
-      "used": true
+      "used": true,
+      "brand": "Xing Ling Genérico"
     }
   ],
   "brands": [
     {
       "id": "1",
       "name": "Dell",
-      "image": "https://via.placeholder.com/150"
+      "image": "https://t.ctcdn.com.br/vodo_dt9riNMBG1Am13Zfl5jSOU=/1080x1080/smart/i489974.jpeg"
     },
     {
       "id": "2",
       "name": "Asus",
-      "image": "https://via.placeholder.com/150"
+      "image": "https://img.odcdn.com.br/wp-content/uploads/2019/03/20190322064404.jpg"
     },
     {
       "id": "3",
@@ -74,17 +75,17 @@
     {
       "id": "4",
       "name": "HP",
-      "image": "https://via.placeholder.com/150"
+      "image": "https://t.ctcdn.com.br/0y5m48f0T6vjzdPl0iKXZShkBFk=/1080x1080/smart/i607937.png"
     },
     {
       "id": "5",
       "name": "LG",
-      "image": "https://via.placeholder.com/150"
+      "image": "https://t.ctcdn.com.br/bhIV3BqFxsrAzZnhMYWrApFIGzM=/i489959.jpeg"
     },
     {
       "id": "6",
       "name": "Xing Ling Genérico",
-      "image": "https://via.placeholder.com/150"
+      "image": "https://sbtcc.org.br/wp-content/uploads/2023/08/yang-zhen-duo.jpg"
     }
   ]
 }

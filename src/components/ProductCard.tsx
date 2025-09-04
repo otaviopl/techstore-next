@@ -1,14 +1,15 @@
 'use client'
 
-import { Product } from '@/types/product'
+import { Product, Brand } from '@/types/product'
 
 interface ProductCardProps {
   product: Product
+  brands: Brand[]
   onEdit: (product: Product) => void
   onDelete: (id: string) => void
 }
 
-export default function ProductCard({ product, onEdit, onDelete }: ProductCardProps) {
+export default function ProductCard({ product, brands,onEdit, onDelete }: ProductCardProps) {
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
@@ -20,7 +21,7 @@ export default function ProductCard({ product, onEdit, onDelete }: ProductCardPr
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
       <div className="h-48 bg-gray-200">
         <img
-          src={product.image}
+          src={brands.find(brand => brand.name === product.brand)?.image || product.image}
           alt={product.name}
           className="w-full h-full object-cover"
           onError={(e) => {

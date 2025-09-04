@@ -6,11 +6,13 @@ export interface Product {
   description: string
   image: string
   used: boolean
+  brand: string
 }
 
 export interface Brand {
   id: string
   name: string
+  image: string
 }
 
 export interface CreateProductRequest {
@@ -20,6 +22,7 @@ export interface CreateProductRequest {
   description: string
   image: string
   used: boolean
+  brand: string
 }
 
 export interface UpdateProductRequest extends CreateProductRequest {

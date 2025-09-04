@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { Product, CreateProductRequest } from '@/types/product'
+import { useState, useEffect } from 'react'
+import { Product, CreateProductRequest, Brand } from '@/types/product'
 import ProductCard from './ProductCard'
 import ProductForm from './ProductForm'
 
@@ -17,6 +17,24 @@ export default function ProductList({ products, onProductUpdate, onProductDelete
   const [filterSection, setFilterSection] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
   const [filterUsed, setFilterUsed] = useState('')
+  const [brands, setBrands] = useState<Brand[]>([])
+
+  // Carregar marcas na inicialização
+  useEffect(() => {
+    loadBrands()
+  }, [])
+
+  const loadBrands = async () => {
+    try {
+      const response = await fetch('/api/brands')
+      if (response.ok) {
+        const data = await response.json()
+        setBrands(data)
+      }
+    } catch (error) {
+      console.error('Erro ao carregar marcas:', error)
+    }
+  }
 
   // Obter seções únicas dos produtos
   const sections = [...new Set(products.map(product => product.section))]
@@ -141,6 +159,7 @@ export default function ProductList({ products, onProductUpdate, onProductDelete
             <ProductCard
               key={product.id}
               product={product}
+              brands={brands}
               onEdit={handleEdit}
               onDelete={handleDelete}
             />
