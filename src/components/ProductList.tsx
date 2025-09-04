@@ -67,7 +67,7 @@ export default function ProductList({ products, onProductUpdate, onProductDelete
               placeholder="Buscar produtos..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
             />
           </div>
           
@@ -75,7 +75,7 @@ export default function ProductList({ products, onProductUpdate, onProductDelete
             <select
               value={filterSection}
               onChange={(e) => setFilterSection(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
             >
               <option value="">Todas as seções</option>
               {sections.map(section => (
@@ -90,7 +90,7 @@ export default function ProductList({ products, onProductUpdate, onProductDelete
             <select
               value={filterUsed}
               onChange={(e) => setFilterUsed(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
             >
               <option value="">Todos</option>
               <option value="new">Novos</option>
@@ -100,7 +100,7 @@ export default function ProductList({ products, onProductUpdate, onProductDelete
           
           <button
             onClick={() => setShowForm(true)}
-            className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md transition-colors duration-200 font-medium whitespace-nowrap"
+            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md transition-colors duration-200 font-medium whitespace-nowrap"
           >
             + Novo Produto
           </button>

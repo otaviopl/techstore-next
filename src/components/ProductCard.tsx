@@ -35,7 +35,7 @@ export default function ProductCard({ product, onEdit, onDelete }: ProductCardPr
             {product.name}
           </h3>
           <div className="flex flex-col gap-1">
-            <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+            <span className="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full">
               {product.section}
             </span>
             {product.used && (
@@ -51,7 +51,7 @@ export default function ProductCard({ product, onEdit, onDelete }: ProductCardPr
         </p>
         
         <div className="flex justify-center items-center mb-3">
-          <span className="text-2xl font-bold text-green-600">
+          <span className="text-2xl font-bold text-orange-600">
             {formatPrice(product.price)}
           </span>
         </div>
@@ -59,7 +59,7 @@ export default function ProductCard({ product, onEdit, onDelete }: ProductCardPr
         <div className="flex gap-2">
           <button
             onClick={() => onEdit(product)}
-            className="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition-colors duration-200 text-sm font-medium"
+            className="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md transition-colors duration-200 text-sm font-medium"
           >
             Editar
           </button>

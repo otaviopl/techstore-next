@@ -1,50 +1,59 @@
 {
   "products": [
-      {
-        "id": "1",
-        "name": "Notebook Positivo",
-        "section": "computadores",
-        "price": 100,
-        "description": "Notebook Positivo 16GB 1TB SSD Intel Core i5-1135G7 11ª Geração 256GB SSD 16GB RAM",
-        "used": false,
-        "brand": "Positivo"
-      },
-      {
-        "id": "2",
-        "name": "Notebook Dell",
-        "section": "computadores",
-        "price": 100,
-        "description": "Notebook Dell 16GB 1TB SSD Intel Core i5-1135G7 11ª Geração 256GB SSD 16GB RAM",
-        "used": false,
-        "brand": "Dell"
-      },
-      {
-        "id": "3",
-        "name": "Fone de Ouvido Asus",
-        "section": "acessorios",
-        "price": 100,
-        "description": "Fone de Ouvido Asus com cancelamento de ruído",
-        "used": false,
-        "brand": "Asus"
-      },
-      {
-        "id": "4",
-        "name": "Impressora HP",
-        "section": "acessorios",
-        "price": 100,
-        "description": "Impressora HP com cancelamento de ruído",
-        "used": false,
-        "brand": "HP"
-      },
-      {
-        "id": "5",
-        "name": "Monitor LG",
-        "section": "acessorios",
-        "price": 100,
-        "description": "Monitor LG 24 polegadas",
-        "used": false,
-        "brand": "LG"
-      }
+    {
+      "id": "1",
+      "name": "Notebook Positivo",
+      "section": "computadores",
+      "price": 100,
+      "description": "Notebook Positivo 16GB 1TB SSD Intel Core i5-1135G7 11ª Geração 256GB SSD 16GB RAM",
+      "used": false,
+      "brand": "Positivo"
+    },
+    {
+      "id": "2",
+      "name": "Notebook Dell",
+      "section": "computadores",
+      "price": 100,
+      "description": "Notebook Dell 16GB 1TB SSD Intel Core i5-1135G7 11ª Geração 256GB SSD 16GB RAM",
+      "used": false,
+      "brand": "Dell"
+    },
+    {
+      "id": "3",
+      "name": "Fone de Ouvido Asus",
+      "section": "acessorios",
+      "price": 100,
+      "description": "Fone de Ouvido Asus com cancelamento de ruído",
+      "used": false,
+      "brand": "Asus"
+    },
+    {
+      "id": "4",
+      "name": "Impressora HP",
+      "section": "acessorios",
+      "price": 100,
+      "description": "Impressora HP com cancelamento de ruído",
+      "used": false,
+      "brand": "HP"
+    },
+    {
+      "id": "5",
+      "name": "Monitor LG",
+      "section": "acessorios",
+      "price": 100,
+      "description": "Monitor LG 24 polegadas",
+      "used": false,
+      "brand": "LG"
+    },
+    {
+      "id": "6",
+      "name": "Teclado Gamer",
+      "section": "acessorios",
+      "price": "2000",
+      "description": "Teclado foda!",
+      "image": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400",
+      "used": true
+    }
   ],
   "brands": [
     {
@@ -60,7 +69,7 @@
     {
       "id": "3",
       "name": "Positivo",
-      "image": "https://via.placeholder.com/150"
+      "image": "https://www.cartacapital.com.br/cupons/img/lojas/logo/positivo.png"
     },
     {
       "id": "4",

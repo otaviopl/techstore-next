@@ -101,7 +101,7 @@ export default function Home() {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
           <p className="text-gray-600">Carregando produtos...</p>
         </div>
       </div>
@@ -117,7 +117,7 @@ export default function Home() {
           <p className="text-gray-600 mb-6">{error}</p>
           <button
             onClick={loadProducts}
-            className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md transition-colors duration-200"
+            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md transition-colors duration-200"
           >
             Tentar Novamente
           </button>
@@ -144,7 +144,7 @@ export default function Home() {
               <p className="text-sm text-gray-500">
                 Total de produtos
               </p>
-              <p className="text-2xl font-bold text-blue-600">
+              <p className="text-2xl font-bold text-orange-600">
                 {products.length}
               </p>
             </div>
