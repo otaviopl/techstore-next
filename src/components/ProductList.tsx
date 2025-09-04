@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import { Product, CreateProductRequest, Brand } from '@/types/product'
 import ProductCard from './ProductCard'
 import ProductForm from './ProductForm'
+import { motion } from 'framer-motion'
+import { Plus } from 'lucide-react'
 
 interface ProductListProps {
   products: Product[]
@@ -116,12 +118,16 @@ export default function ProductList({ products, onProductUpdate, onProductDelete
             </select>
           </div>
           
-          <button
+          <motion.button
             onClick={() => setShowForm(true)}
-            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md transition-colors duration-200 font-medium whitespace-nowrap"
+            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md transition-colors duration-200 font-medium whitespace-nowrap flex items-center gap-2"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
           >
-            + Novo Produto
-          </button>
+            <Plus size={18} />
+            Novo Produto
+          </motion.button>
         </div>
       </div>
 
@@ -154,17 +160,28 @@ export default function ProductList({ products, onProductUpdate, onProductDelete
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredProducts.map(product => (
-            <ProductCard
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          {filteredProducts.map((product, index) => (
+            <motion.div
               key={product.id}
-              product={product}
-              brands={brands}
-              onEdit={handleEdit}
-              onDelete={handleDelete}
-            />
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+            >
+              <ProductCard
+                product={product}
+                brands={brands}
+                onEdit={handleEdit}
+                onDelete={handleDelete}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       )}
 
       {/* Modal do Formulário */}

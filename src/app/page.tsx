@@ -99,7 +99,7 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-200 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
           <p className="text-gray-600">Carregando produtos...</p>
@@ -110,7 +110,7 @@ export default function Home() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-200 flex items-center justify-center">
         <div className="bg-white p-8 rounded-lg shadow-md max-w-md text-center">
           <div className="text-red-500 text-6xl mb-4">⚠️</div>
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Erro de Conexão</h2>
@@ -127,25 +127,17 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-200">
       {/* Header */}
       <header className="bg-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div>
               <h1 className="text-3xl font-bold text-gray-900">
-                🛒 TechStore
+                TechStore
               </h1>
               <p className="text-gray-600 mt-1">
                 Loja de Informática - Gerenciamento de Produtos
-              </p>
-            </div>
-            <div className="text-right">
-              <p className="text-sm text-gray-500">
-                Total de produtos
-              </p>
-              <p className="text-2xl font-bold text-orange-600">
-                {products.length}
               </p>
             </div>
           </div>
@@ -165,9 +157,8 @@ export default function Home() {
       <footer className="bg-white border-t mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="text-center text-gray-500">
-            <p>© 2024 TechStore - Desenvolvido com Next.js e Tailwind CSS</p>
             <p className="text-sm mt-1">
-              Projeto com BFF (Backend for Frontend) usando API Routes
+              Projeto com BFF (Backend for Frontend) usando API Routes - 2025 - Desenvolvido por @otaviopl
             </p>
           </div>
         </div>

@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { Product, CreateProductRequest, Brand } from '@/types/product'
+import { motion, AnimatePresence } from 'framer-motion'
+import { X } from 'lucide-react'
 
 interface ProductFormProps {
   product?: Product
@@ -77,12 +79,35 @@ export default function ProductForm({ product, onSubmit, onCancel, isEditing = f
   }
 
   return (
-    <div className="fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto border-2 border-orange-500">
+    <AnimatePresence>
+      <motion.div 
+        className="fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center p-4 z-50"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <motion.div 
+          className="bg-white rounded-lg shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto border-2 border-orange-500"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.8, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
         <div className="p-6">
-          <h2 className="text-2xl font-bold text-orange-600 mb-6">
-            {isEditing ? 'Editar Produto' : 'Novo Produto'}
-          </h2>
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold text-orange-600">
+              {isEditing ? 'Editar Produto' : 'Novo Produto'}
+            </h2>
+            <motion.button
+              onClick={onCancel}
+              className="text-gray-500 hover:text-gray-700 transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <X size={24} />
+            </motion.button>
+          </div>
           
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
@@ -208,24 +233,31 @@ export default function ProductForm({ product, onSubmit, onCancel, isEditing = f
             </div>
 
             <div className="flex gap-3 pt-4">
-              <button
+              <motion.button
                 type="submit"
                 className="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md transition-colors duration-200 font-medium"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
               >
                 {isEditing ? 'Atualizar' : 'Cadastrar'}
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 type="button"
                 onClick={onCancel}
                 className="flex-1 bg-gray-400 hover:bg-gray-500 text-white py-2 px-4 rounded-md transition-colors duration-200 font-medium"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
               >
                 Cancelar
-              </button>
+              </motion.button>
             </div>
           </form>
         </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
   )
 }
 

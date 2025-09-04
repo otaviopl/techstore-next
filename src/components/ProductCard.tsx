@@ -1,7 +1,8 @@
 'use client'
 
 import { Product, Brand } from '@/types/product'
-
+import { Edit, Trash2 } from 'lucide-react'
+import { motion } from 'framer-motion'
 interface ProductCardProps {
   product: Product
   brands: Brand[]
@@ -18,8 +19,14 @@ export default function ProductCard({ product, brands,onEdit, onDelete }: Produc
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-      <div className="h-48 bg-gray-200">
+    <motion.div 
+      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="h-48 bg-gray-200 relative">
         <img
           src={brands.find(brand => brand.name === product.brand)?.image || product.image}
           alt={product.name}
@@ -28,6 +35,35 @@ export default function ProductCard({ product, brands,onEdit, onDelete }: Produc
             e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Sem+Imagem'
           }}
         />
+        
+        {/* Botões de ação nos cantos */}
+        <div className="absolute bottom-2 left-2 flex gap-1">
+          <motion.button
+            onClick={() => onEdit(product)}
+            className="bg-orange-500 hover:bg-orange-600 text-white p-2.5 rounded-full shadow-md transition-colors duration-200"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ delay: 0.2, duration: 0.3 }}
+            title="Editar produto"
+          >
+            <Edit size={16} />
+          </motion.button>
+          
+          <motion.button
+            onClick={() => onDelete(product.id)}
+            className="bg-red-500 hover:bg-red-600 text-white p-2.5 rounded-full shadow-md transition-colors duration-200"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ delay: 0.3, duration: 0.3 }}
+            title="Excluir produto"
+          >
+            <Trash2 size={16} />
+          </motion.button>
+        </div>
       </div>
       
       <div className="p-4">
@@ -57,22 +93,8 @@ export default function ProductCard({ product, brands,onEdit, onDelete }: Produc
           </span>
         </div>
         
-        <div className="flex gap-2">
-          <button
-            onClick={() => onEdit(product)}
-            className="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md transition-colors duration-200 text-sm font-medium"
-          >
-            Editar
-          </button>
-          <button
-            onClick={() => onDelete(product.id)}
-            className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md transition-colors duration-200 text-sm font-medium"
-          >
-            Excluir
-          </button>
-        </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
