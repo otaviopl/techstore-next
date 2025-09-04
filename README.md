@@ -1,36 +1,166 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 TechStore - Loja de Informática (Next.js + BFF)
 
-## Getting Started
+Sistema de gerenciamento de produtos para loja de informática, desenvolvido com **Next.js 15**, **TypeScript**, **Tailwind CSS** e **BFF (Backend for Frontend)**.
 
-First, run the development server:
+## 🚀 Tecnologias
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- ⚛️ Next.js 15 (App Router)
+- 🔷 TypeScript
+- 🎨 Tailwind CSS
+- 🏗️ BFF (Backend for Frontend) com API Routes
+- 📦 JSON como banco de dados
+
+## 🏗️ Arquitetura BFF
+
+Este projeto implementa o padrão **BFF (Backend for Frontend)** usando as API Routes do Next.js:
+
+### 📁 Estrutura da API
+
+```
+src/app/api/
+├── products/
+│   ├── route.ts          # GET (listar) e POST (criar)
+│   └── [id]/
+│       └── route.ts      # GET, PUT, DELETE por ID
+└── brands/
+    └── route.ts          # GET (listar marcas)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🔄 Endpoints Disponíveis
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `GET /api/products` - Listar todos os produtos
+- `POST /api/products` - Criar novo produto
+- `GET /api/products/[id]` - Buscar produto por ID
+- `PUT /api/products/[id]` - Atualizar produto
+- `DELETE /api/products/[id]` - Deletar produto
+- `GET /api/brands` - Listar todas as marcas
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Funcionalidades
 
-## Learn More
+- ✅ **CRUD Completo** - Criar, ler, atualizar e deletar produtos
+- ✅ **Filtros Avançados** - Por seção e status (usado/novo)
+- ✅ **Busca em Tempo Real** - Por nome e descrição
+- ✅ **Interface Responsiva** - Desktop, tablet e mobile
+- ✅ **TypeScript** - Tipagem forte em todo o projeto
+- ✅ **BFF Pattern** - Backend otimizado para o frontend
+- ✅ **Validação de Dados** - Validação tanto no frontend quanto no backend
 
-To learn more about Next.js, take a look at the following resources:
+## ▶️ Como executar
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Pré-requisitos
+- Node.js (versão 18 ou superior)
+- npm ou yarn
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Instalação
 
-## Deploy on Vercel
+1. **Clone o repositório:**
+   ```bash
+   git clone <url-do-repositorio>
+   cd techstore-next
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Acesse a aplicação:**
+   - Frontend: http://localhost:3000
+   - API: http://localhost:3000/api/products
+
+## 📁 Estrutura do Projeto
+
+```
+techstore-next/
+├── src/
+│   ├── app/
+│   │   ├── api/                    # API Routes (BFF)
+│   │   │   ├── products/
+│   │   │   └── brands/
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx               # Página principal
+│   ├── components/
+│   │   ├── ProductCard.tsx
+│   │   ├── ProductForm.tsx
+│   │   └── ProductList.tsx
+│   ├── data/
+│   │   └── products.json          # Banco de dados JSON
+│   └── types/
+│       └── product.ts             # Tipos TypeScript
+├── package.json
+├── tailwind.config.js
+├── tsconfig.json
+└── README.md
+```
+
+## 🎯 Seções de Produtos
+
+- **computadores** - Hardware, componentes, etc.
+- **acessorios** - Periféricos, monitores, áudio, etc.
+- **impressoras** - Impressoras e equipamentos de impressão
+- **games** - Produtos relacionados a jogos
+- **gadgets** - Dispositivos eletrônicos diversos
+
+## 🛠️ Scripts Disponíveis
+
+- `npm run dev` - Inicia o servidor de desenvolvimento
+- `npm run build` - Gera build de produção
+- `npm run start` - Inicia o servidor de produção
+- `npm run lint` - Executa o linter
+
+## 🔧 Vantagens do BFF
+
+### ✅ **Benefícios Implementados:**
+
+1. **API Otimizada para Frontend**
+   - Endpoints específicos para as necessidades da UI
+   - Redução de over-fetching e under-fetching
+
+2. **Validação Centralizada**
+   - Validação de dados no backend
+   - Tipagem TypeScript compartilhada
+
+3. **Performance**
+   - Menos requisições HTTP
+   - Dados agregados quando necessário
+
+4. **Manutenibilidade**
+   - Lógica de negócio centralizada
+   - Fácil evolução da API
+
+## 📊 Dados de Exemplo
+
+O arquivo `src/data/products.json` contém produtos de exemplo nas seções:
+- computadores
+- acessorios
+
+## 🔄 Fluxo de Dados
+
+```
+Frontend (React) → API Routes (BFF) → JSON Database
+     ↓                    ↓                ↓
+  Componentes         Validação        Persistência
+  TypeScript         TypeScript        Local
+```
+
+## 📝 Licença
+
+Este projeto é uma evolução do ProductStore original, implementando arquitetura moderna com Next.js e BFF.
+
+## 🤝 Contribuição
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 📞 Suporte
+
+Se encontrar algum problema ou tiver dúvidas, abra uma issue no repositório.
