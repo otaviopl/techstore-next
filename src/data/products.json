@@ -1,71 +1,81 @@
 {
   "products": [
-    {
-      "id": "4",
-      "name": "Monitor Samsung 24\" Full HD",
-      "section": "acessorios",
-      "price": 899.99,
-      "description": "Monitor LED 24 polegadas, resolução Full HD 1920x1080, tempo de resposta 1ms",
-      "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400",
-      "used": false
-    },
-    {
-      "id": "5",
-      "name": "Headset HyperX Cloud II",
-      "section": "acessorios",
-      "price": 399.99,
-      "description": "Headset gamer com som surround virtual 7.1, microfone removível e drivers de 53mm",
-      "image": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400",
-      "used": false
-    },
-    {
-      "id": "6",
-      "name": "Placa de Vídeo RTX 4060",
-      "section": "computadores",
-      "price": 1899.99,
-      "description": "Placa de vídeo NVIDIA GeForce RTX 4060, 8GB GDDR6, ray tracing e DLSS 3.0",
-      "image": "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400",
-      "used": true
-    },
-    {
-      "id": "7",
-      "name": "SSD Samsung 1TB NVMe",
-      "section": "computadores",
-      "price": 499.99,
-      "description": "SSD NVMe M.2 de 1TB, velocidade de leitura até 7000MB/s, ideal para jogos e aplicações",
-      "image": "https://images.unsplash.com/photo-1597872200964-2b65d56bd16b?w=400",
-      "used": false
-    },
-    {
-      "id": "8",
-      "name": "Webcam Logitech C920",
-      "section": "acessorios",
-      "price": 349.99,
-      "description": "Webcam HD 1080p com autofoco, microfone estéreo integrado e compatível com streaming",
-      "image": "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400",
-      "used": true
-    }
+      {
+        "id": "1",
+        "name": "Notebook Positivo",
+        "section": "computadores",
+        "price": 100,
+        "description": "Notebook Positivo 16GB 1TB SSD Intel Core i5-1135G7 11ª Geração 256GB SSD 16GB RAM",
+        "used": false,
+        "brand": "Positivo"
+      },
+      {
+        "id": "2",
+        "name": "Notebook Dell",
+        "section": "computadores",
+        "price": 100,
+        "description": "Notebook Dell 16GB 1TB SSD Intel Core i5-1135G7 11ª Geração 256GB SSD 16GB RAM",
+        "used": false,
+        "brand": "Dell"
+      },
+      {
+        "id": "3",
+        "name": "Fone de Ouvido Asus",
+        "section": "acessorios",
+        "price": 100,
+        "description": "Fone de Ouvido Asus com cancelamento de ruído",
+        "used": false,
+        "brand": "Asus"
+      },
+      {
+        "id": "4",
+        "name": "Impressora HP",
+        "section": "acessorios",
+        "price": 100,
+        "description": "Impressora HP com cancelamento de ruído",
+        "used": false,
+        "brand": "HP"
+      },
+      {
+        "id": "5",
+        "name": "Monitor LG",
+        "section": "acessorios",
+        "price": 100,
+        "description": "Monitor LG 24 polegadas",
+        "used": false,
+        "brand": "LG"
+      }
   ],
   "brands": [
     {
       "id": "1",
-      "name": "Dell"
+      "name": "Dell",
+      "image": "https://via.placeholder.com/150"
     },
     {
       "id": "2",
-      "name": "Asus"
+      "name": "Asus",
+      "image": "https://via.placeholder.com/150"
     },
     {
       "id": "3",
-      "name": "Positivo"
+      "name": "Positivo",
+      "image": "https://via.placeholder.com/150"
     },
     {
       "id": "4",
-      "name": "HP"
+      "name": "HP",
+      "image": "https://via.placeholder.com/150"
     },
     {
       "id": "5",
-      "name": "Xing Ling Genérico"
+      "name": "LG",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "6",
+      "name": "Xing Ling Genérico",
+      "image": "https://via.placeholder.com/150"
     }
   ]
 }

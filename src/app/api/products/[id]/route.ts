@@ -8,13 +8,14 @@ const dataFilePath = path.join(process.cwd(), 'src', 'data', 'products.json')
 // GET - Buscar produto por ID
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const fileContents = await fs.readFile(dataFilePath, 'utf8')
     const data = JSON.parse(fileContents)
     
-    const product = data.products.find((p: Product) => p.id === params.id)
+    const product = data.products.find((p: Product) => p.id === id)
     
     if (!product) {
       return NextResponse.json(
@@ -36,9 +37,10 @@ export async function GET(
 // PUT - Atualizar produto
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const body: UpdateProductRequest = await request.json()
     
     // Validação básica
@@ -52,7 +54,7 @@ export async function PUT(
     const fileContents = await fs.readFile(dataFilePath, 'utf8')
     const data = JSON.parse(fileContents)
     
-    const productIndex = data.products.findIndex((p: Product) => p.id === params.id)
+    const productIndex = data.products.findIndex((p: Product) => p.id === id)
     
     if (productIndex === -1) {
       return NextResponse.json(
@@ -62,7 +64,7 @@ export async function PUT(
     }
     
     const updatedProduct: Product = {
-      id: params.id,
+      id: id,
       ...body
     }
     
@@ -83,13 +85,14 @@ export async function PUT(
 // DELETE - Deletar produto
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const fileContents = await fs.readFile(dataFilePath, 'utf8')
     const data = JSON.parse(fileContents)
     
-    const productIndex = data.products.findIndex((p: Product) => p.id === params.id)
+    const productIndex = data.products.findIndex((p: Product) => p.id === id)
     
     if (productIndex === -1) {
       return NextResponse.json(
