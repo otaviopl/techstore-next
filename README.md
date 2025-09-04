@@ -1,5 +1,5 @@
 # TechStore — Loja de Informática
-
+## Com erro de persistencia de dados no db.json em produção ( vercel é serveless e não consegue escrever em arquivos, solução é colocar em /tmp )
 Aplicação moderna para gerenciamento de produtos de uma loja de informática. O projeto utiliza Next.js 15 (App Router), TypeScript, Tailwind CSS e Framer Motion, adotando o padrão BFF (Backend for Frontend) por meio de API Routes para intermediar o acesso aos dados persistidos em arquivo JSON.
 
 ## Visão Geral da Arquitetura
