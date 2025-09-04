@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "🛒 TechStore - Loja de Informática",
+  title: "TechStore - Loja de Informática",
   description: "Sistema de gerenciamento de produtos para loja de informática com BFF",
 };
 

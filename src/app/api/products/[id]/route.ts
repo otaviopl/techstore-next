@@ -64,8 +64,8 @@ export async function PUT(
     }
     
     const updatedProduct: Product = {
-      id: id,
-      ...body
+      ...body,
+      id: id
     }
     
     data.products[productIndex] = updatedProduct

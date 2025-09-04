@@ -10,7 +10,7 @@ export async function GET() {
   try {
     const fileContents = await fs.readFile(dataFilePath, 'utf8')
     const data = JSON.parse(fileContents)
-    return NextResponse.json(data.brands)
+    return NextResponse.json(data.brands as Brand[])
   } catch (error) {
     console.error('Erro ao ler marcas:', error)
     return NextResponse.json(
